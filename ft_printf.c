@@ -6,7 +6,7 @@
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:14:53 by mefische          #+#    #+#             */
-/*   Updated: 2025/04/29 17:18:29 by mefische         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:26:26 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ int	ft_printf(const char *s, ...)
 				ft_putchar(va_arg(ap, int));
 			else if (s[i] == 's')
 				ft_putstr(va_arg(ap, char *)); //como vou imprimir a variavel correta e manter a linhas da funcao?
-			else if (s[i] == 'p') // pointer in hexadecimal format
-				write (1, &s[i], 5); // probably not 0x at start?
-			else if (s[i] == 'd') // decimal number
-				ft_itoa(va_arg(ap, int)); //not sure
-			else if (s[i] == 'i') // integer
-				ft_itoa(va_arg(ap, int));
-/*			else if (s[i] == 'u') // unsigned decimal
+			else if (s[i] == 'd' || s[i] == 'i') // decimal number
+				ft_putnbr(va_arg(ap, int)); //not sure
+/*			else if (s[i] == 'p') // pointer in hexadecimal format
+			else if (s[i] == 'u') // unsigned decimal
 			else if (s[i] == 'x') // hexadecimal lowercase
 			else if (s[i] == 'X') // hexadecimal uppercase*/
 			else
