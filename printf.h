@@ -6,12 +6,12 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-# Printf function
-int	ft_printf(const char *, ...);
+// Printf function
+int	ft_printf(const char *s, ...);
 
-# Helper functions
+// Helper functions
 size_t	ft_strlen(const char *s);
-voi
+void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putnbr(int n);
 

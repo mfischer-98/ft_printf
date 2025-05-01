@@ -10,26 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
-
-/*# include <fcntl.h> //for open
-
-int	main(void)
-{
-	int		fd;
-	char	c;
-
-	c = 'a';
-	fd = open("z", O_WRONLY | O_CREAT, 0644);
-	if (fd == -1)
-		return (1);
-	ft_putchar_fd(c, fd);
-	close(fd);
-	if (close(fd) == -1)
-		return (1);
-}*/

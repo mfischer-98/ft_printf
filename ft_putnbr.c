@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
 void	ft_putnbr(int n)
 {
@@ -26,8 +26,8 @@ void	ft_putnbr(int n)
 	}
 	if (n > 9)
 	{
-		ft_putnbr_fd(n / 10);
-		ft_putnbr_fd(n % 10);
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
 	}
 	if (n >= 0 && n <= 9)
 	{
@@ -35,20 +35,3 @@ void	ft_putnbr(int n)
 		write(1, &n, 1);
 	}
 }
-
-/*# include <fcntl.h> //for open
-
-int	main(void)
-{
-	int	fd;
-	int	c;
-
-	c = -2147483648;
-	fd = open("z", O_WRONLY | O_CREAT, 0644);
-	if (fd == -1)
-		return (1);
-	ft_putnbr_fd(c, fd);
-	close(fd);
-	if (close(fd) == -1)
-		return (1);
-}*/
