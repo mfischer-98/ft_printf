@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_printhexa.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 18:43:32 by mefische          #+#    #+#             */
-/*   Updated: 2025/05/02 12:02:29 by mefische         ###   ########.fr       */
+/*   Created: 2025/05/02 14:08:06 by mefische          #+#    #+#             */
+/*   Updated: 2025/05/02 16:17:25 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+int	ft_printhexa(unsigned int n, char *base)
 {
-	int	count;
+	int		i;
+	int		count;
+	char	nbr[20];
 
+	i = 0;
 	count = 0;
-	if (n == -2147483648)
+	if (n == 0)
 	{
-		write(1, "-2147483648", 11);
-		return (11);
+		ft_putstr("0");
+		return (1);
 	}
-	if (n < 0)
+	while (n > 0)
 	{
-		count += write(1, "-", 1);
-		n = -n;
+		nbr[i] = base[n % 16];
+		n = n/16;
+		i++;
 	}
-	if (n > 9)
+	while (i--)
 	{
-		count += ft_putnbr(n / 10);
-		count += ft_putnbr(n % 10);
-	}
-	if (n >= 0 && n <= 9)
-	{
-		n = n + 48;
-		count += write(1, &n, 1);
+		ft_putchar(nbr[i]);
+		count++;
 	}
 	return (count);
 }

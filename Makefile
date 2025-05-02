@@ -6,12 +6,18 @@
 #    By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 14:15:05 by mefische          #+#    #+#              #
-#    Updated: 2025/04/29 17:55:06 by mefische         ###   ########.fr        #
+#    Updated: 2025/05/02 16:25:21 by mefische         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRC = ft_printf.c ft_putstr.c ft_putchar.c ft_strlen.c
+SRC = ft_printf.c \
+	ft_putstr.c \
+	ft_putchar.c \
+	ft_putnbr.c \
+	ft_unsig_putnbr.c \
+	ft_printhexa.c \
+	ft_pointer.c
 
 OBJ = $(SRC:.c=.o)
 

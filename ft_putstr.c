@@ -6,17 +6,23 @@
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:18:44 by mefische          #+#    #+#             */
-/*   Updated: 2025/04/29 18:15:55 by mefische         ###   ########.fr       */
+/*   Updated: 2025/05/02 12:48:47 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-	while (*s)
+	int	i;
+
+	i = 0;
+	if (!s)
+		s = "(null)";
+	while (s[i])
 	{
-		write(1, s, 1);
-		s++;
+		write(1, &s[i], 1);
+		i++;
 	}
+	return (i);
 }

@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 18:43:32 by mefische          #+#    #+#             */
-/*   Updated: 2025/05/02 12:02:29 by mefische         ###   ########.fr       */
+/*   Created: 2025/05/02 09:59:32 by mefische          #+#    #+#             */
+/*   Updated: 2025/05/02 16:12:33 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
 
-int	ft_putnbr(int n)
-{
-	int	count;
+# define FT_PRINTF_H
 
-	count = 0;
-	if (n == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return (11);
-	}
-	if (n < 0)
-	{
-		count += write(1, "-", 1);
-		n = -n;
-	}
-	if (n > 9)
-	{
-		count += ft_putnbr(n / 10);
-		count += ft_putnbr(n % 10);
-	}
-	if (n >= 0 && n <= 9)
-	{
-		n = n + 48;
-		count += write(1, &n, 1);
-	}
-	return (count);
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <stdint.h>
+
+// Printf function
+int	ft_printf(const char *s, ...);
+
+// Helper functions
+int	ft_putchar(char c);
+int	ft_putstr(char *s);
+int	ft_putnbr(int n);
+int	ft_unsig_putnbr(unsigned int n);
+int	ft_printhexa(unsigned int n, char *base);
+int	ft_pointer(void *ptr);
+
+#endif

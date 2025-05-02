@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_unsig_putnbr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 18:43:32 by mefische          #+#    #+#             */
-/*   Updated: 2025/05/02 12:02:29 by mefische         ###   ########.fr       */
+/*   Created: 2025/05/02 12:10:17 by mefische          #+#    #+#             */
+/*   Updated: 2025/05/02 12:45:36 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+int	ft_unsig_putnbr(unsigned int n)
 {
 	int	count;
 
 	count = 0;
-	if (n == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return (11);
-	}
-	if (n < 0)
-	{
-		count += write(1, "-", 1);
-		n = -n;
-	}
+	n = (long)n;
 	if (n > 9)
 	{
 		count += ft_putnbr(n / 10);
