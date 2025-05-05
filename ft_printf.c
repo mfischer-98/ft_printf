@@ -6,7 +6,7 @@
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:14:53 by mefische          #+#    #+#             */
-/*   Updated: 2025/05/02 16:16:22 by mefische         ###   ########.fr       */
+/*   Updated: 2025/05/05 12:49:40 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static int	ft_check(char format, va_list ap)
 		return (ft_printhexa(va_arg(ap, unsigned int), "0123456789abcdef"));
 	else if (format == 'X')
 		return (ft_printhexa(va_arg(ap, unsigned int), "0123456789ABCDEF"));
- 	else if (format == 'p')
+	else if (format == 'p')
 		return (ft_pointer(va_arg(ap, void *)));
-	return (0);
+	return (-1);
 }
 
-int	ft_printf(const char *s, ...)
+int	ft_printf(const char *f, ...)
 {
 	int		i;
 	int		count;
@@ -41,25 +41,25 @@ int	ft_printf(const char *s, ...)
 
 	i = 0;
 	count = 0;
-	va_start(ap, s);
-	if (!s)
+	va_start(ap, f);
+	if (!f)
 		return (0);
-	while (s[i])
+	while (f[i])
 	{
-		if (s[i] == '%')
+		if (f[i] == '%')
 		{
 			i++;
-			count += ft_check(s[i], ap);
+			count += ft_check(f[i], ap);
 		}
 		else
-			count += write(1, &s[i], 1);
+			count += write(1, &f[i], 1);
 		i++;
 	}
 	va_end(ap);
 	return (count);
 }
 
-/* int	main()
+/*int	main()
 {
 	int		x = 26;
 	int		count = 0;
@@ -67,7 +67,7 @@ int	ft_printf(const char *s, ...)
 	char	c = 'm';
 
 	//Percentage
-	ft_printf("Percentage: %%\n");
+	ft_printf("Percentage: 10%%\n");
 	
 	//Character
 	count = ft_printf("Caracter: %c.\n", c);
@@ -90,7 +90,7 @@ int	ft_printf(const char *s, ...)
 	//Unsigned int
 	ft_printf ("Unsigned int: %u\n", 10);
 	ft_printf ("Unsigned int negative: %u\n", -1);
-	printf ("Unsigned int negative: %u\n", -2147483647);
+	printf ("OG Printf unsigned int negative: %u\n", -1);
 
 	//Hexadecimal underscore
 	ft_printf("Integer %i in hexadecimal is %x.\n", x, 26);
@@ -100,5 +100,8 @@ int	ft_printf(const char *s, ...)
 
 	//Pointer
 	ft_printf("Memory address of x is %p.\n", &c);
-	printf("Printf memory address of x is %p.\n", &c);
+	printf("OG Printf memory address of x is %p.\n\n\n", &c);
+
+	ft_printf(" %p %p ", 0, 0);
+	printf(" %p %p ", 0, 0);
 } */

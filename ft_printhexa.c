@@ -6,13 +6,13 @@
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 14:08:06 by mefische          #+#    #+#             */
-/*   Updated: 2025/05/02 16:17:25 by mefische         ###   ########.fr       */
+/*   Updated: 2025/05/05 11:59:31 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printhexa(unsigned int n, char *base)
+int	ft_printhexa(unsigned long n, char *base)
 {
 	int		i;
 	int		count;
@@ -28,7 +28,7 @@ int	ft_printhexa(unsigned int n, char *base)
 	while (n > 0)
 	{
 		nbr[i] = base[n % 16];
-		n = n/16;
+		n = n / 16;
 		i++;
 	}
 	while (i--)
