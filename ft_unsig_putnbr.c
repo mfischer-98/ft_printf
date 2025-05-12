@@ -6,7 +6,7 @@
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 12:10:17 by mefische          #+#    #+#             */
-/*   Updated: 2025/05/02 12:45:36 by mefische         ###   ########.fr       */
+/*   Updated: 2025/05/12 10:33:21 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_unsig_putnbr(unsigned int n)
 	int	count;
 
 	count = 0;
-	n = (long)n;
 	if (n > 9)
 	{
 		count += ft_putnbr(n / 10);

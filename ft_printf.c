@@ -6,7 +6,7 @@
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:14:53 by mefische          #+#    #+#             */
-/*   Updated: 2025/05/05 12:49:40 by mefische         ###   ########.fr       */
+/*   Updated: 2025/05/12 10:23:36 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ int	ft_printf(const char *f, ...)
 	while (f[i])
 	{
 		if (f[i] == '%')
-		{
-			i++;
-			count += ft_check(f[i], ap);
-		}
+			count += ft_check(f[++i], ap);
 		else
 			count += write(1, &f[i], 1);
 		i++;
@@ -59,49 +56,52 @@ int	ft_printf(const char *f, ...)
 	return (count);
 }
 
-/*int	main()
+/* # include <stdio.h>
+
+int	main()
 {
-	int		x = 26;
+	int		x = 387870;
 	int		count = 0;
 	char	str[] = "lets go";
 	char	c = 'm';
-
+	
 	//Percentage
-	ft_printf("Percentage: 10%%\n");
+	ft_printf("Percentage: 10%%\n\n");
 	
 	//Character
-	count = ft_printf("Caracter: %c.\n", c);
-	printf ("Return value: %d\n", count);
+	ft_printf("Caracter: ");
+	count = ft_printf("%c", c);
+	printf ("\nReturn value: %d\n\n", count);
 
 	//String
-	count = ft_printf("String: %s.\n", str);
-	printf ("Return value printf: %d\n", count);
+	ft_printf("String: ");
+	count = ft_printf("%s", str);
+	ft_printf("\nMy return value: %d\nPrintf: ", count);
+	count = printf("%s", str);
+	printf("\nPrintf return value: %d\n\n", count);
 
 	//Decimal or integer
-	count = ft_printf("Decimal number: %d.\n", x);
-	printf ("Return value: %d\n", count);
-	
-	count = printf("Integer number: %d.\n", x);
-	printf ("Return value: %d\n", count);
+	ft_printf("Integer or decimal: ");
+	count = ft_printf("%d", x);
+	ft_printf ("\nMy return value: %d\nPrintf: ", count);
+	count = printf("%d", x);
+	printf ("\nPrintf return value: %d\n\n", count);
 
 	//Two variables
-	ft_printf("Integer %i and then string %s.\n", x, str);
+	ft_printf("Multiple variables:");
+	ft_printf(" Integer %i, character %c and then string %s.\n\n", x, c, str);
 
 	//Unsigned int
-	ft_printf ("Unsigned int: %u\n", 10);
-	ft_printf ("Unsigned int negative: %u\n", -1);
-	printf ("OG Printf unsigned int negative: %u\n", -1);
+	ft_printf ("Unsigned int: ");
+	ft_printf ("%u", 10);
 
 	//Hexadecimal underscore
-	ft_printf("Integer %i in hexadecimal is %x.\n", x, 26);
+	ft_printf("\nHexadecimal(x): Integer %i in hexadecimal is %x.\n", x, 26);
 
 	//Hexadecimal upperscore
-	ft_printf("Integer %i in hexadecimal is %X.\n", x, 26);
+	ft_printf("\nHexadecimal(X): Integer %i in hexadecimal is %X.\n", x, 26);
 
 	//Pointer
-	ft_printf("Memory address of x is %p.\n", &c);
-	printf("OG Printf memory address of x is %p.\n\n\n", &c);
-
-	ft_printf(" %p %p ", 0, 0);
-	printf(" %p %p ", 0, 0);
+	ft_printf("\nMemory address of x is %p.\n", &c);
+	printf("Printf memory address of x is %p.\n", &c);
 } */
